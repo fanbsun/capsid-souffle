@@ -182,7 +182,8 @@ int run_simulation(int argc, char *argv[]) {
    //assign big beads
    // double reduced_a = (radius_a * 1e-9) / SIsigma;
    // double effective_charge = -1*(reduced_a / lb)*(4*kappa*reduced_a+6);
-   vector<BEAD> big_beads = generate_big_beads(number_bigbeads,2*radius_a,subunit_bead,box_size,100.0,3,charge_a,1000000, restartFile);
+   vector<BEAD> big_beads;
+   if (encapsulation){vector<BEAD> big_beads = generate_big_beads(number_bigbeads,2*radius_a,subunit_bead,box_size,100.0,3,charge_a,1000000, restartFile);}
 
    if (brownian == false) {                                 //for molecular, set up the nose hoover thermostat
       if (chain_length_real == 1)
